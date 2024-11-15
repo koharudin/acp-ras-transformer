@@ -1,0 +1,9 @@
+[submodule "acp"]
+	path = acp
+	url = https://github.com/koharudin/automated-curation-platform
+[submodule "ras"]
+	path = ras
+	url = https://github.com/koharudin/repository-assistant-service.git
+[submodule "transformer"]
+	path = transformer
+	url = https://github.com/koharudin/dans-transformer-service.git
