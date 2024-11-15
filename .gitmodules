@@ -7,3 +7,6 @@
 [submodule "transformer"]
 	path = transformer
 	url = https://github.com/koharudin/dans-transformer-service.git
+[submodule "acp-admin"]
+	path = acp-admin
+	url = https://github.com/koharudin/acp-admin.git
