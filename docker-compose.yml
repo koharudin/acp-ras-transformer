@@ -6,18 +6,32 @@ services:
     ports:
       - 10124:10124
     volumes:
-      - ./:/home/dans/acp 
+      - ./acp:/home/dans/acp 
     tty: true
     command: "poetry run python -m src.main"
   ras:
     build:
       context : ras
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
+      args:
+        - VERSION=0.1.8.1
+    volumes:
+      - ./ras:/home/dans/repository-assistant-service
     ports:
-      - 10125:10125
+      - 2810:2810
+    tty: true
+    command: "poetry run python -m src.main"
   transformer: 
     build: 
       context: transformer 
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
+      args:
+        - VERSION=0.5.9
     ports:
-      - 10126:10126
+      - 1745:1745
+    tty: true
+    volumes:
+      - ./transformer:/home/dans/dans-transformer-service
+    environment:
+      - BASE_DIR=/home/dans/dans-transformer-service
+    command: "poetry run python -m src.main"
