@@ -1,4 +1,17 @@
 services:
+  acp-admin:
+    build: 
+      context: acp-admin
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+    tty: true
+    volumes:
+      - ./acp-admin/app:/app
+    environment:
+      - NODE_ENV=development 
+      - WATCHPACK_POLLING=true
+    command: "yarn dev"
   acp:
     build: 
       context: acp 
